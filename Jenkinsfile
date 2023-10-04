@@ -4,7 +4,7 @@ pipeline {
     }
     agent any
     environment {
-        registry = "public.ecr.aws/h8g2x0p1/sonupathak"
+        registry = "544786713028.dkr.ecr.us-east-1.amazonaws.com/sonupathak"
     }
    
     stages {
@@ -69,10 +69,10 @@ pipeline {
     stage('Pushing to ECR') {
      steps{  
          script {
-                sh 'aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/h8g2x0p1'
+                sh 'aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 544786713028.dkr.ecr.us-east-1.amazonaws.com'
                 sh 'docker build -t sonupathak .'
-                sh 'docker tag sonupathak:latest public.ecr.aws/h8g2x0p1/sonupathak:latest'
-                sh 'docker push public.ecr.aws/h8g2x0p1/sonupathak:latest'
+                sh 'docker tag sonupathak:latest 544786713028.dkr.ecr.us-east-1.amazonaws.com/sonupathak:latest'
+                sh 'docker push 544786713028.dkr.ecr.us-east-1.amazonaws.com/sonupathak:latest'
          }
         }
       }
