@@ -36,7 +36,7 @@ pipeline {
 
         // }
         withSonarQubeEnv('sonar-cloud') {
-          sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=sonupathak1 -Dsonar.organization=sonupathak -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=eeb64e758a53dbefaf583478e8f641b0155a7b12'
+          sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=sonupathak1 -Dsonar.organization=sonupathak1 -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=eeb64e758a53dbefaf583478e8f641b0155a7b12'
           echo '<--------------- Sonar Analysis stopped  --------------->'
         }
       }
