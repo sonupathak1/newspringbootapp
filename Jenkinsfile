@@ -45,6 +45,7 @@ pipeline {
       steps {
         script {
           echo '<--------------- Quality Gate started  --------------->'
+           sleep(10)
           timeout(time: 1, unit: 'MINUTES') {
             def qg = waitForQualityGate()
             if (qg.status != 'OK') {
