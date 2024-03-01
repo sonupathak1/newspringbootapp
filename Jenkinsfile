@@ -44,6 +44,7 @@ pipeline {
                 sh 'docker tag sonupathak:latest 779870982142.dkr.ecr.us-west-1.amazonaws.com/sonupathak:latest'
                 sh 'docker push 779870982142.dkr.ecr.us-west-1.amazonaws.com/sonupathak:latest'
          }
+         }
         }
       }
              stage('Deploy to EKS') {
