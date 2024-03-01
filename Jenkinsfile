@@ -52,7 +52,7 @@ pipeline {
                 withAWS(credentials: '2d85b46b-0d33-4afb-b5fa-28b79d9d48da', region: 'us-west-1') {
                 script {
                     // Authenticate with the EKS cluster (ensure AWS credentials are configured)
-                    sh 'aws eks --region us-west-1 update-kubeconfig --name demo-eks'
+                    sh 'aws eks --region us-west-1 update-kubeconfig --name sample-cluster'
                     
                     // Apply Kubernetes manifest files to deploy your application
                      // sh "kubectl delete -f eks-deploy-k8s.yaml"
