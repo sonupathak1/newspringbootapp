@@ -49,6 +49,7 @@ pipeline {
       }
              stage('Deploy to EKS') {
             steps {
+                withAWS(credentials: '2d85b46b-0d33-4afb-b5fa-28b79d9d48da', region: 'us-west-1') {
                 script {
                     // Authenticate with the EKS cluster (ensure AWS credentials are configured)
                     sh 'aws eks --region us-west-1 update-kubeconfig --name demo-eks'
@@ -57,6 +58,7 @@ pipeline {
                      // sh "kubectl delete -f eks-deploy-k8s.yaml"
                       sh "kubectl apply -f eks-deploy-k8s.yaml"
                 }
+            }
             }
         }
     } 
