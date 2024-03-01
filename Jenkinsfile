@@ -39,7 +39,7 @@ pipeline {
      steps{ 
         withAWS(credentials: '2d85b46b-0d33-4afb-b5fa-28b79d9d48da', region: 'us-west-1') {
          script {
-                sh 'aws ecr get-login-password --region us-west-1 | docker login -u AWS -p $(aws ecr get-login-password --region us-west1) 779870982142.dkr.ecr.us-west-1.amazonaws.com'
+                sh 'aws ecr get-login-password --region us-west-1 | docker login --username AWS --password-stdin 779870982142.dkr.ecr.us-west-1.amazonaws.com'
                 sh 'docker build -t sonupathak .'
                 sh 'docker tag sonupathak:latest 779870982142.dkr.ecr.us-west-1.amazonaws.com/sonupathak:latest'
                 sh 'docker push 779870982142.dkr.ecr.us-west-1.amazonaws.com/sonupathak:latest'
