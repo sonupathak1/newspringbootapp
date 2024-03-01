@@ -56,7 +56,7 @@ pipeline {
                     
                     // Apply Kubernetes manifest files to deploy your application
                      // sh "kubectl delete -f eks-deploy-k8s.yaml"
-                      sh "/usr/local/bin/kubectl apply -f eks-deploy-k8s.yaml"
+                      sh "kubectl apply -f eks-deploy-k8s.yaml"
                 }
             }
             }
