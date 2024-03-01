@@ -36,7 +36,8 @@ pipeline {
     }
     // Uploading Docker images into AWS ECR
     stage('Pushing to ECR') {
-     steps{  
+     steps{ 
+        withAWS(credentials: '2d85b46b-0d33-4afb-b5fa-28b79d9d48da', region: 'us-west-1') {
          script {
                 sh 'aws ecr get-login-password --region us-west-1 | docker login -u AWS -p $(aws ecr get-login-password --region us-west1) 779870982142.dkr.ecr.us-west-1.amazonaws.com'
                 sh 'docker build -t sonupathak .'
