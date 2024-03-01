@@ -38,7 +38,7 @@ pipeline {
     stage('Pushing to ECR') {
      steps{  
          script {
-                sh 'aws ecr get-login-password --region us-west-1 | docker login --username AWS --password-stdin 779870982142.dkr.ecr.us-west-1.amazonaws.com/sonupathak'
+                sh 'aws ecr get-login-password --region us-west-1 | docker login --username AWS --password-stdin 779870982142.dkr.ecr.us-west-1.amazonaws.com'
                 sh 'docker build -t sonupathak .'
                 sh 'docker tag sonupathak:latest 779870982142.dkr.ecr.us-west-1.amazonaws.com/sonupathak:latest'
                 sh 'docker push 779870982142.dkr.ecr.us-west-1.amazonaws.com/sonupathak:latest'
